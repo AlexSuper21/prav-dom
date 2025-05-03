@@ -7,30 +7,32 @@
     <link rel="stylesheet" href="cssstyle.css">
 </head>
 <body>
-    <!-- Блоки загружаются здесь -->
-    <div id="header-container"></div>
-    <div id="hero-container"></div>
-    <div id="projects-container"></div>
-    <div id="footer-container"></div>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <img src="LUgol.png" alt="Лого" class="logo">
+            <nav>
+                <a href="#projects">Проекты</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero" style="background-image: url('glav.png')">
+        <div class="container">
+            <h1>Строим правильные дома</h1>
+            <button class="btn">Узнать стоимость</button>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Правильный дом</p>
+        </div>
+    </footer>
 
     <script src="jsscript.js"></script>
-    <script>
-        // Загрузка модулей
-        function loadModule(moduleName, containerId) {
-            fetch(`modules/${moduleName}.html`)
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById(containerId).innerHTML = html;
-                });
-        }
-
-        // Загружаем все модули
-        window.addEventListener('DOMContentLoaded', () => {
-            loadModule('header', 'header-container');
-            loadModule('hero', 'hero-container');
-            loadModule('projects', 'projects-container');
-            loadModule('footer', 'footer-container');
-        });
-    </script>
 </body>
 </html>
