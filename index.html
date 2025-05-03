@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правильный дом</title>
+    <link rel="stylesheet" href="cssstyle.css">
+</head>
+<body>
+    <!-- Блоки загружаются здесь -->
+    <div id="header-container"></div>
+    <div id="hero-container"></div>
+    <div id="projects-container"></div>
+    <div id="footer-container"></div>
+
+    <script src="jsscript.js"></script>
+    <script>
+        // Загрузка модулей
+        function loadModule(moduleName, containerId) {
+            fetch(`modules/${moduleName}.html`)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById(containerId).innerHTML = html;
+                });
+        }
+
+        // Загружаем все модули
+        window.addEventListener('DOMContentLoaded', () => {
+            loadModule('header', 'header-container');
+            loadModule('hero', 'hero-container');
+            loadModule('projects', 'projects-container');
+            loadModule('footer', 'footer-container');
+        });
+    </script>
+</body>
+</html>
