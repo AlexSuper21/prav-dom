@@ -3,69 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Правильный дом — строительство загородной недвижимости</title>
+    <title>Правильный дом</title>
     <link rel="stylesheet" href="cssstyle.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="LUgol.png" alt="Логотип Правильный дом" onerror="this.src='placeholder.png'">
-            </div>
-            <nav class="menu">
-                <a href="#about">О компании</a>
-                <a href="#services">Услуги</a>
-                <a href="#projects">Проекты</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-            <div class="phone">
-                <a href="tel:+79991234567">+7 (999) 123-45-67</a>
-                <button class="btn-call">Заказать звонок</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Герой-секция -->
-    <section class="hero" style="background-image: url('glav.png')">
-        <div class="container">
-            <h1>Строим правильные дома для вашей семьи</h1>
-            <p>Индивидуальное проектирование и строительство загородных домов под ключ</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">Рассчитать стоимость</button>
-                <button class="btn-secondary">Посмотреть проекты</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Блок проектов -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Наши проекты</h2>
-            <div class="project-gallery">
-                <div class="project-item">
-                    <img src="KsLev.png" alt="Проект дома 1" onerror="this.style.display='none'">
-                    <h3>Дом в классическом стиле</h3>
-                </div>
-                <div class="project-item">
-                    <img src="KsPrav.png" alt="Проект дома 2" onerror="this.style.display='none'">
-                    <h3>Современный коттедж</h3>
-                </div>
-                <div class="project-item">
-                    <img src="PUgol.png" alt="Проект дома 3" onerror="this.style.display='none'">
-                    <h3>Загородный особняк</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="footer" style="background-image: url('sZad.png')">
-        <div class="container">
-            <p>© 2023 "Правильный дом". Все права защищены.</p>
-        </div>
-    </footer>
+    <!-- Блоки загружаются здесь -->
+    <div id="header-container"></div>
+    <div id="hero-container"></div>
+    <div id="projects-container"></div>
+    <div id="footer-container"></div>
 
     <script src="jsscript.js"></script>
+    <script>
+        // Загрузка модулей
+        function loadModule(moduleName, containerId) {
+            fetch(`modules/${moduleName}.html`)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById(containerId).innerHTML = html;
+                });
+        }
+
+        // Загружаем все модули
+        window.addEventListener('DOMContentLoaded', () => {
+            loadModule('header', 'header-container');
+            loadModule('hero', 'hero-container');
+            loadModule('projects', 'projects-container');
+            loadModule('footer', 'footer-container');
+        });
+    </script>
 </body>
 </html>
